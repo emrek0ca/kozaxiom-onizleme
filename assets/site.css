@@ -78,6 +78,14 @@ p {
   padding-bottom: 2rem;
 }
 
+/* 1.4 — yazi logosu: sade ve kucuk */
+.masthead .logo {
+  display: block;
+  width: 160px;
+  height: auto;
+  margin-bottom: 1.15rem;
+}
+
 .masthead h1 {
   margin: 0 0 0.35rem;
   color: var(--ink);
