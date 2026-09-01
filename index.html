@@ -17,80 +17,108 @@
 </head>
 
 <body>
-  <div class="page">
 
-    <!-- 2.1 — masthead, no section heading -->
-    <header class="masthead">
-      <!-- 1.4 — mevcut KOZ AXIOM yazi logosu, baslik blogunun ustunde, kucuk.
-           Acik zeminde lacivert, koyu zeminde beyaz surumu gosterilir.
-           alt bos: hemen altindaki h1 zaten adi yaziyor. -->
-      <picture>
-        <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)" />
-        <img class="logo" src="assets/logo.png" width="480" height="163" alt="" />
-      </picture>
-      <h1>Koz Axiom</h1>
-      <p class="lede">Freight brokerage — chemical and industrial cargo</p>
-      <p>Tank containers, dry containers, breakbulk and part cargo.</p>
-      <p class="contact"><a href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a></p>
-    </header>
+  <!-- 1.4 — yazi logosu, baslik blogunun ustunde, sade ve kucuk.
+       Alt sayfa ve menu yoktur (Bolum 1), o yuzden serit sadece logodan ibaret. -->
+  <header class="topbar">
+    <div class="wrap">
+      <img class="logo" src="assets/logo-dark.png" width="480" height="163" alt="" />
+    </div>
+  </header>
 
-    <main>
+  <!-- 2.1 — baslik blogu. Bolum basligi, slogan ve buton yoktur. -->
+  <section class="hero">
+    <video class="hero__media" poster="assets/hero-poster.jpg" autoplay muted loop playsinline
+      preload="metadata" tabindex="-1" aria-hidden="true">
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__veil"></div>
+    <div class="hero__inner">
+      <div class="wrap">
+        <h1>Koz Axiom</h1>
+        <p class="hero__lede">Freight brokerage — chemical and industrial cargo</p>
+        <p class="hero__line">Tank containers, dry containers, breakbulk and part cargo.</p>
+        <p class="hero__contact"><a href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a></p>
+      </div>
+    </div>
+  </section>
 
-      <!-- 2.2 -->
-      <section>
+  <main>
+
+    <!-- 2.2 -->
+    <section class="band">
+      <div class="wrap">
         <h2>What we do</h2>
-        <p>Koz Axiom is a freight desk. We work between cargo owners who need space and operators who have it.</p>
-        <p>We do not own vessels or equipment. Bookings are placed and documented by the licensed operator or
-          forwarder handling the shipment. Our part is to find the match, keep the details straight, and stay on the
-          file until the cargo is delivered.</p>
-        <p>This is a small desk. You deal with one person from enquiry to delivery — no ticket queue, no handover
-          between departments.</p>
-      </section>
+        <div class="prose">
+          <p>Koz Axiom is a freight desk. We work between cargo owners who need space and operators who have it.</p>
+          <p>We do not own vessels or equipment. Bookings are placed and documented by the licensed operator or
+            forwarder handling the shipment. Our part is to find the match, keep the details straight, and stay on
+            the file until the cargo is delivered.</p>
+          <p>This is a small desk. You deal with one person from enquiry to delivery — no ticket queue, no handover
+            between departments.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- 2.3 -->
-      <section>
+    <!-- 2.3 -->
+    <section class="band">
+      <div class="wrap">
         <h2>Cargo we handle</h2>
         <ul class="cargo">
           <li>ISO tank containers — liquid chemicals, including IMDG Class 3, 6.1 and 8.</li>
           <li>Dry containers — packaged chemicals in drums, IBCs and bags, and flexibags for non-hazardous liquids.</li>
           <li>Breakbulk and part cargo where a full container is not the right fit.</li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <!-- 2.4 -->
-      <section>
+    <!-- 2.4 -->
+    <section class="band">
+      <div class="wrap">
         <h2>Dangerous goods</h2>
-        <p>Dangerous goods are quoted through the operator's DG desk, not around it.</p>
-        <p>Before any rate is discussed we need the UN number, class, packing group and a current MSDS. Where a
-          commodity carries an IMDG special provision, the packing and pre-treatment requirements are settled before
-          the enquiry goes to a carrier — not after the booking is confirmed.</p>
-        <p>If a cargo cannot be carried the way it is described, we say so at the enquiry stage.</p>
-      </section>
+        <div class="prose">
+          <p>Dangerous goods are quoted through the operator's DG desk, not around it.</p>
+          <p>Before any rate is discussed we need the UN number, class, packing group and a current MSDS. Where a
+            commodity carries an IMDG special provision, the packing and pre-treatment requirements are settled
+            before the enquiry goes to a carrier — not after the booking is confirmed.</p>
+          <p>If a cargo cannot be carried the way it is described, we say so at the enquiry stage.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- 2.5 -->
-      <section>
+    <!-- 2.5 -->
+    <section class="band">
+      <div class="wrap">
         <h2>Lanes</h2>
-        <p>Enquiry coverage: Gulf, Indian subcontinent, Southeast Asia, East Africa, North Africa and China.</p>
-        <p>Where a lane carries war risk or restricted routing — at present this includes ports inside the Strait of
-          Hormuz — the premium and the empty repositioning cost are shown as separate lines, not folded into a single
-          figure.</p>
-      </section>
+        <div class="prose">
+          <p>Enquiry coverage: Gulf, Indian subcontinent, Southeast Asia, East Africa, North Africa and China.</p>
+          <p>Where a lane carries war risk or restricted routing — at present this includes ports inside the Strait
+            of Hormuz — the premium and the empty repositioning cost are shown as separate lines, not folded into a
+            single figure.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- 2.6 -->
-      <section>
+    <!-- 2.6 -->
+    <section class="band">
+      <div class="wrap">
         <h2>How we work</h2>
-        <p>Send us: commodity, with the UN number if it is dangerous goods; packing; cargo weight; port of loading;
-          port of discharge; equipment type and number of units; cargo ready date; Incoterm.</p>
-        <p>You get back: the named operator, the rate basis, what is included and what is not, and how long it is
-          valid.</p>
-        <p>No rate leaves this desk without a carrier or an operator behind it.</p>
-      </section>
+        <div class="prose">
+          <p>Send us: commodity, with the UN number if it is dangerous goods; packing; cargo weight; port of loading;
+            port of discharge; equipment type and number of units; cargo ready date; Incoterm.</p>
+          <p>You get back: the named operator, the rate basis, what is included and what is not, and how long it is
+            valid.</p>
+          <p>No rate leaves this desk without a carrier or an operator behind it.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- 2.7 — form action: tek degistirme noktasi, bkz. TESLIM.md -->
-      <section id="enquiry">
+    <!-- 2.7 — form action: tek degistirme noktasi, bkz. TESLIM.md -->
+    <section class="band" id="enquiry">
+      <div class="wrap">
         <h2>Send an enquiry</h2>
 
-        <form id="enquiry-form" class="enquiry" method="post" action="/send.php" accept-charset="utf-8" novalidate>
+        <form id="enquiry-form" class="enquiry" method="post" action="send.php" accept-charset="utf-8" novalidate>
 
           <!-- honeypot: insana gorunmez, botlar doldurur (3.3) -->
           <div class="hp" aria-hidden="true">
@@ -181,19 +209,20 @@
         <p class="fineprint">Fields marked with an asterisk are required.</p>
         <p class="fineprint">The details you send are used to handle your enquiry and are not passed to anyone outside
           the operators quoted for it. This site does not use tracking or advertising cookies.</p>
-      </section>
+      </div>
+    </section>
 
-    </main>
+  </main>
 
-    <!-- 2.8 — footer, no section heading -->
-    <footer class="colophon">
+  <!-- 2.8 — alt bilgi, bolum basligi yoktur -->
+  <footer class="colophon">
+    <div class="wrap">
       <p>Koz Axiom is a freight brokerage desk operated by Sait Hüseyin Koz, Ankara, Türkiye.</p>
       <p>Shipments are carried out under the documentation of the licensed operator or forwarder on the file.</p>
       <p><a href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a></p>
       <p class="copyright">&copy; <span id="year">2026</span> Koz Axiom</p>
-    </footer>
-
-  </div>
+    </div>
+  </footer>
 
   <script src="assets/site.js" defer></script>
 </body>

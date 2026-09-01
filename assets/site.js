@@ -11,6 +11,16 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  /* ── hero videosu ───────────────────────────────────────────
+     Hareket azaltma tercihi acikken video hic indirilmez; yerine
+     poster karesi gosterilir (CSS tarafinda). */
+  var hero = document.querySelector('.hero__media');
+  if (hero && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.removeAttribute('autoplay');
+    hero.innerHTML = '';
+    hero.load();
+  }
+
   /* ── 2.7 enquiry formu ──────────────────────────────────────── */
   var form = document.getElementById('enquiry-form');
   var button = document.getElementById('enquiry-submit');

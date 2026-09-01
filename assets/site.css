@@ -1,36 +1,20 @@
 /* Koz Axiom — kozaxiom.com
-   Tek sayfa. Harici font, takip kodu ve animasyon yoktur. */
+   Koyu tek sayfa. Harici font ve takip kodu yoktur.
+   Renkler markanin kendi paletinden: lacivert zemin, #838594 cizgi. */
 
 :root {
-  --bg: #ffffff;
-  --ink: #16191c;
-  --ink-soft: #3a4046;
-  --ink-faint: #6b7278;
-  --rule: #dfe3e6;
-  --field: #ffffff;
-  --field-border: #b9c0c6;
-  --accent: #16191c;
-  --accent-ink: #ffffff;
-  --error: #8c1d18;
-  --ok-bg: #f2f5f3;
-  --error-bg: #fbf1f0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14171a;
-    --ink: #e8eaec;
-    --ink-soft: #c3c8cc;
-    --ink-faint: #8b9298;
-    --rule: #2c3136;
-    --field: #1b1f23;
-    --field-border: #454c52;
-    --accent: #e8eaec;
-    --accent-ink: #14171a;
-    --error: #f0a9a3;
-    --ok-bg: #1b201d;
-    --error-bg: #221a19;
-  }
+  --bg: #070a11;
+  --bg-panel: #0d1119;
+  --bg-field: #10151e;
+  --ink: #eef1f7;
+  --ink-body: #b9c1d0;
+  --ink-mute: #7d8698;
+  --rule: #1c2331;
+  --rule-strong: #838594;
+  --field-border: #2a3342;
+  --error: #f0a9a3;
+  --error-bg: #1e1416;
+  --ok-bg: #0f1a16;
 }
 
 *,
@@ -46,112 +30,187 @@ html {
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--ink-soft);
+  color: var(--ink-body);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
-  line-height: 1.6;
-}
-
-.page {
-  max-width: 44rem;
-  margin: 0 auto;
-  padding: 3.5rem 1.25rem 4rem;
+  line-height: 1.65;
 }
 
 a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 
 a:hover {
-  text-decoration-color: var(--ink-faint);
+  color: var(--ink);
 }
 
 p {
-  margin: 0 0 1rem;
+  margin: 0 0 1.15rem;
 }
 
-/* ── masthead (2.1) ─────────────────────────────────────────── */
-
-.masthead {
-  padding-bottom: 2rem;
+:focus-visible {
+  outline: 2px solid var(--rule-strong);
+  outline-offset: 2px;
 }
 
-/* 1.4 — yazi logosu: sade ve kucuk */
-.masthead .logo {
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── ust serit: sadece logo, menu yoktur ────────────────────── */
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 1.6rem 0;
+}
+
+.topbar .logo {
   display: block;
-  width: 160px;
+  width: 132px;
   height: auto;
-  margin-bottom: 1.15rem;
 }
 
-.masthead h1 {
-  margin: 0 0 0.35rem;
+/* ── 2.1 baslik blogu ───────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100svh;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.75) contrast(1.05) brightness(0.62);
+}
+
+/* Yazinin okunmasi icin koyu perde */
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 10, 17, 0.82) 0%, rgba(7, 10, 17, 0.45) 38%, rgba(7, 10, 17, 0.94) 100%),
+    linear-gradient(90deg, rgba(7, 10, 17, 0.8) 0%, rgba(7, 10, 17, 0.15) 62%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 9rem 0 4.5rem;
+}
+
+.hero h1 {
+  margin: 0 0 1.1rem;
+  color: #fff;
+  font-size: clamp(2.6rem, 7.5vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero__lede {
+  max-width: 34rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-strong);
   color: var(--ink);
-  font-size: 1.75rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
 }
 
-.masthead .lede {
-  margin-bottom: 0.85rem;
+.hero__line {
+  max-width: 34rem;
+  color: var(--ink-body);
+}
+
+.hero__contact {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── bolumler (2.2 – 2.7) ───────────────────────────────────── */
+
+section.band {
+  border-bottom: 1px solid var(--rule);
+  padding: 5rem 0;
+}
+
+section.band:last-of-type {
+  border-bottom: 0;
+}
+
+.band h2 {
+  margin: 0 0 2rem;
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: clamp(1.5rem, 3.4vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
-.masthead .contact {
+.prose {
+  max-width: 46rem;
+}
+
+.prose p:last-child {
   margin-bottom: 0;
 }
 
-/* ── sections (2.2 – 2.7) ───────────────────────────────────── */
-
-section {
-  border-top: 1px solid var(--rule);
-  padding: 1.75rem 0 0.75rem;
-}
-
-h2 {
-  margin: 0 0 0.9rem;
-  color: var(--ink);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
+/* 2.3 — kart halinde (belge kart veya duz liste diyor) */
 .cargo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+@media (min-width: 48rem) {
+  .cargo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .cargo li {
-  margin-bottom: 0.85rem;
-  padding-left: 1rem;
-  position: relative;
+  border: 1px solid var(--rule);
+  border-top: 1px solid var(--rule-strong);
+  background: var(--bg-panel);
+  padding: 1.6rem 1.5rem;
+  color: var(--ink-body);
 }
 
-.cargo li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 5px;
-  height: 1px;
-  background: var(--ink-faint);
-}
-
-/* ── enquiry form (2.7) ─────────────────────────────────────── */
+/* ── 2.7 form ───────────────────────────────────────────────── */
 
 .enquiry {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem 1.25rem;
-  margin: 0 0 1.5rem;
+  gap: 1.35rem 1.5rem;
+  max-width: 54rem;
+  margin: 0 0 2rem;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 44rem) {
   .enquiry {
     grid-template-columns: 1fr 1fr;
   }
@@ -167,39 +226,38 @@ h2 {
 
 label {
   display: block;
-  margin-bottom: 0.3rem;
-  color: var(--ink);
-  font-size: 0.9rem;
-  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: var(--ink-mute);
+  font-size: 0.76rem;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .req {
-  color: var(--ink-faint);
+  color: var(--rule-strong);
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
-  padding: 0.55rem 0.65rem;
+  padding: 0.7rem 0.8rem;
   border: 1px solid var(--field-border);
-  border-radius: 2px;
-  background: var(--field);
+  border-radius: 0;
+  background: var(--bg-field);
   color: var(--ink);
   font: inherit;
   font-size: 1rem;
 }
 
-textarea {
-  resize: vertical;
+input:hover,
+textarea:hover {
+  border-color: var(--rule-strong);
 }
 
-input:focus-visible,
-textarea:focus-visible,
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 1px;
+textarea {
+  resize: vertical;
 }
 
 input:user-invalid,
@@ -208,30 +266,33 @@ textarea:user-invalid {
 }
 
 .actions {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 button[type="submit"] {
-  padding: 0.65rem 1.5rem;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
-  background: var(--accent);
-  color: var(--accent-ink);
+  padding: 0.85rem 2.2rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
   font: inherit;
-  font-size: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
 button[type="submit"]:hover {
-  opacity: 0.88;
+  background: var(--rule-strong);
+  color: #070a11;
 }
 
 button[type="submit"][disabled] {
   cursor: default;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
-/* honeypot — off-screen, not display:none, so bots still fill it */
+/* honeypot — ekran disinda, display:none degil ki botlar doldursun */
 .hp {
   position: absolute;
   left: -9999px;
@@ -241,11 +302,12 @@ button[type="submit"][disabled] {
 }
 
 .notice {
-  margin: 0 0 1.25rem;
-  padding: 0.85rem 1rem;
-  border-left: 2px solid var(--rule);
-  border-radius: 2px;
+  max-width: 54rem;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--rule-strong);
   background: var(--ok-bg);
+  padding: 1rem 1.15rem;
   color: var(--ink);
 }
 
@@ -255,27 +317,47 @@ button[type="submit"][disabled] {
 }
 
 .fineprint {
-  margin-bottom: 0.6rem;
-  color: var(--ink-faint);
-  font-size: 0.83rem;
-  line-height: 1.55;
+  max-width: 46rem;
+  margin-bottom: 0.7rem;
+  color: var(--ink-mute);
+  font-size: 0.84rem;
+  line-height: 1.6;
 }
 
-/* ── colophon (2.8) ─────────────────────────────────────────── */
+.fineprint:last-child {
+  margin-bottom: 0;
+}
+
+/* ── 2.8 alt bilgi ──────────────────────────────────────────── */
 
 .colophon {
-  margin-top: 2rem;
   border-top: 1px solid var(--rule);
-  padding-top: 1.75rem;
-  color: var(--ink-faint);
+  padding: 3.5rem 0 4rem;
+  color: var(--ink-mute);
   font-size: 0.88rem;
 }
 
 .colophon p {
-  margin-bottom: 0.5rem;
+  max-width: 46rem;
+  margin-bottom: 0.6rem;
 }
 
 .colophon .copyright {
-  margin-top: 1rem;
+  margin-top: 1.6rem;
   margin-bottom: 0;
+  letter-spacing: 0.06em;
+}
+
+/* ── hareket azaltma tercihi ────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__media {
+    display: none;
+  }
+
+  .hero {
+    background-image: url("hero-poster.jpg");
+    background-position: center;
+    background-size: cover;
+  }
 }
