@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Koz Axiom — Freight brokerage, chemical and industrial cargo</title>
+  <meta name="description"
+    content="Freight desk for chemical and industrial cargo. Tank containers, dry containers, breakbulk. Enquiries: tradedesk@kozaxiom.com" />
+
+  <!-- gecici onizleme: arama motorlarina kapali -->
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://kozaxiom.com/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- 2.1 — masthead, no section heading -->
+    <header class="masthead">
+      <h1>Koz Axiom</h1>
+      <p class="lede">Freight brokerage — chemical and industrial cargo</p>
+      <p>Tank containers, dry containers, breakbulk and part cargo.</p>
+      <p class="contact"><a href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a></p>
+    </header>
+
+    <main>
+
+      <!-- 2.2 -->
+      <section>
+        <h2>What we do</h2>
+        <p>Koz Axiom is a freight desk. We work between cargo owners who need space and operators who have it.</p>
+        <p>We do not own vessels or equipment. Bookings are placed and documented by the licensed operator or
+          forwarder handling the shipment. Our part is to find the match, keep the details straight, and stay on the
+          file until the cargo is delivered.</p>
+        <p>This is a small desk. You deal with one person from enquiry to delivery — no ticket queue, no handover
+          between departments.</p>
+      </section>
+
+      <!-- 2.3 -->
+      <section>
+        <h2>Cargo we handle</h2>
+        <ul class="cargo">
+          <li>ISO tank containers — liquid chemicals, including IMDG Class 3, 6.1 and 8.</li>
+          <li>Dry containers — packaged chemicals in drums, IBCs and bags, and flexibags for non-hazardous liquids.</li>
+          <li>Breakbulk and part cargo where a full container is not the right fit.</li>
+        </ul>
+      </section>
+
+      <!-- 2.4 -->
+      <section>
+        <h2>Dangerous goods</h2>
+        <p>Dangerous goods are quoted through the operator's DG desk, not around it.</p>
+        <p>Before any rate is discussed we need the UN number, class, packing group and a current MSDS. Where a
+          commodity carries an IMDG special provision, the packing and pre-treatment requirements are settled before
+          the enquiry goes to a carrier — not after the booking is confirmed.</p>
+        <p>If a cargo cannot be carried the way it is described, we say so at the enquiry stage.</p>
+      </section>
+
+      <!-- 2.5 -->
+      <section>
+        <h2>Lanes</h2>
+        <p>Enquiry coverage: Gulf, Indian subcontinent, Southeast Asia, East Africa, North Africa and China.</p>
+        <p>Where a lane carries war risk or restricted routing — at present this includes ports inside the Strait of
+          Hormuz — the premium and the empty repositioning cost are shown as separate lines, not folded into a single
+          figure.</p>
+      </section>
+
+      <!-- 2.6 -->
+      <section>
+        <h2>How we work</h2>
+        <p>Send us: commodity, with the UN number if it is dangerous goods; packing; cargo weight; port of loading;
+          port of discharge; equipment type and number of units; cargo ready date; Incoterm.</p>
+        <p>You get back: the named operator, the rate basis, what is included and what is not, and how long it is
+          valid.</p>
+        <p>No rate leaves this desk without a carrier or an operator behind it.</p>
+      </section>
+
+      <!-- 2.7 — form action: tek degistirme noktasi, bkz. TESLIM.md -->
+      <section id="enquiry">
+        <h2>Send an enquiry</h2>
+
+        <form id="enquiry-form" class="enquiry" method="post" action="/send.php" accept-charset="utf-8" novalidate>
+
+          <!-- honeypot: insana gorunmez, botlar doldurur (3.3) -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Website</label>
+            <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="rendered_at" id="f-rendered-at" value="" />
+
+          <p class="field">
+            <label for="f-company">Company <span class="req">*</span></label>
+            <input type="text" id="f-company" name="company" required autocomplete="organization" />
+          </p>
+
+          <p class="field">
+            <label for="f-contact">Contact name <span class="req">*</span></label>
+            <input type="text" id="f-contact" name="contact_name" required autocomplete="name" />
+          </p>
+
+          <p class="field">
+            <label for="f-email">E-mail <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" />
+          </p>
+
+          <p class="field field--wide">
+            <label for="f-commodity">Commodity (and UN number if dangerous goods) <span class="req">*</span></label>
+            <input type="text" id="f-commodity" name="commodity" required />
+          </p>
+
+          <p class="field">
+            <label for="f-packing">Packing</label>
+            <input type="text" id="f-packing" name="packing" />
+          </p>
+
+          <p class="field">
+            <label for="f-weight">Cargo weight per unit <span class="req">*</span></label>
+            <input type="text" id="f-weight" name="cargo_weight" required />
+          </p>
+
+          <p class="field field--wide">
+            <label for="f-dimensions">Dimensions (breakbulk and out-of-gauge only)</label>
+            <input type="text" id="f-dimensions" name="dimensions" />
+          </p>
+
+          <p class="field">
+            <label for="f-pol">Port of loading <span class="req">*</span></label>
+            <input type="text" id="f-pol" name="port_of_loading" required />
+          </p>
+
+          <p class="field">
+            <label for="f-pod">Port of discharge <span class="req">*</span></label>
+            <input type="text" id="f-pod" name="port_of_discharge" required />
+          </p>
+
+          <p class="field field--wide">
+            <label for="f-equipment">Equipment type and number of units <span class="req">*</span></label>
+            <input type="text" id="f-equipment" name="equipment" required />
+          </p>
+
+          <p class="field">
+            <label for="f-ready">Cargo ready date</label>
+            <input type="text" id="f-ready" name="cargo_ready_date" />
+          </p>
+
+          <p class="field">
+            <label for="f-incoterm">Incoterm</label>
+            <input type="text" id="f-incoterm" name="incoterm" />
+          </p>
+
+          <p class="field field--wide">
+            <label for="f-notes">Notes</label>
+            <textarea id="f-notes" name="notes" rows="4"></textarea>
+          </p>
+
+          <p class="field field--wide actions">
+            <button type="submit" id="enquiry-submit">Send enquiry</button>
+          </p>
+        </form>
+
+        <div id="form-error" class="notice notice--error" role="alert" hidden>
+          Your enquiry could not be sent. Please write to <a
+            href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a> directly.
+        </div>
+
+        <div id="form-success" class="notice notice--ok" role="status" tabindex="-1" hidden>
+          Thank you. Your enquiry has been received. We will come back to you once we have an operator on it.
+        </div>
+
+        <p class="fineprint">Fields marked with an asterisk are required.</p>
+        <p class="fineprint">The details you send are used to handle your enquiry and are not passed to anyone outside
+          the operators quoted for it. This site does not use tracking or advertising cookies.</p>
+      </section>
+
+    </main>
+
+    <!-- 2.8 — footer, no section heading -->
+    <footer class="colophon">
+      <p>Koz Axiom is a freight brokerage desk operated by Sait Hüseyin Koz, Ankara, Türkiye.</p>
+      <p>Shipments are carried out under the documentation of the licensed operator or forwarder on the file.</p>
+      <p><a href="mailto:tradedesk@kozaxiom.com">tradedesk@kozaxiom.com</a></p>
+      <p class="copyright">&copy; <span id="year">2026</span> Koz Axiom</p>
+    </footer>
+
+  </div>
+
+  <script src="assets/site.js" defer></script>
+</body>
+
+</html>

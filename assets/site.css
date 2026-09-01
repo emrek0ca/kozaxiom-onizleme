@@ -1,0 +1,273 @@
+/* Koz Axiom — kozaxiom.com
+   Tek sayfa. Harici font, takip kodu ve animasyon yoktur. */
+
+:root {
+  --bg: #ffffff;
+  --ink: #16191c;
+  --ink-soft: #3a4046;
+  --ink-faint: #6b7278;
+  --rule: #dfe3e6;
+  --field: #ffffff;
+  --field-border: #b9c0c6;
+  --accent: #16191c;
+  --accent-ink: #ffffff;
+  --error: #8c1d18;
+  --ok-bg: #f2f5f3;
+  --error-bg: #fbf1f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171a;
+    --ink: #e8eaec;
+    --ink-soft: #c3c8cc;
+    --ink-faint: #8b9298;
+    --rule: #2c3136;
+    --field: #1b1f23;
+    --field-border: #454c52;
+    --accent: #e8eaec;
+    --accent-ink: #14171a;
+    --error: #f0a9a3;
+    --ok-bg: #1b201d;
+    --error-bg: #221a19;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-color: var(--ink-faint);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* ── masthead (2.1) ─────────────────────────────────────────── */
+
+.masthead {
+  padding-bottom: 2rem;
+}
+
+.masthead h1 {
+  margin: 0 0 0.35rem;
+  color: var(--ink);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.masthead .lede {
+  margin-bottom: 0.85rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.masthead .contact {
+  margin-bottom: 0;
+}
+
+/* ── sections (2.2 – 2.7) ───────────────────────────────────── */
+
+section {
+  border-top: 1px solid var(--rule);
+  padding: 1.75rem 0 0.75rem;
+}
+
+h2 {
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.cargo {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cargo li {
+  margin-bottom: 0.85rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.cargo li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 5px;
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+/* ── enquiry form (2.7) ─────────────────────────────────────── */
+
+.enquiry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .enquiry {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.field {
+  margin: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.req {
+  color: var(--ink-faint);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--field-border);
+  border-radius: 2px;
+  background: var(--field);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+input:user-invalid,
+textarea:user-invalid {
+  border-color: var(--error);
+}
+
+.actions {
+  margin-top: 0.25rem;
+}
+
+button[type="submit"] {
+  padding: 0.65rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.88;
+}
+
+button[type="submit"][disabled] {
+  cursor: default;
+  opacity: 0.55;
+}
+
+/* honeypot — off-screen, not display:none, so bots still fill it */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.notice {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--rule);
+  border-radius: 2px;
+  background: var(--ok-bg);
+  color: var(--ink);
+}
+
+.notice--error {
+  border-left-color: var(--error);
+  background: var(--error-bg);
+}
+
+.fineprint {
+  margin-bottom: 0.6rem;
+  color: var(--ink-faint);
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+/* ── colophon (2.8) ─────────────────────────────────────────── */
+
+.colophon {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.75rem;
+  color: var(--ink-faint);
+  font-size: 0.88rem;
+}
+
+.colophon p {
+  margin-bottom: 0.5rem;
+}
+
+.colophon .copyright {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
