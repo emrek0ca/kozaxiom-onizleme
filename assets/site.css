@@ -7,8 +7,8 @@
   --bg-panel: #f4f6f9;
   --bg-field: #ffffff;
   --ink: #0c1235;
-  --ink-body: #3c4453;
-  --ink-mute: #6c7585;
+  --ink-body: #333a47;
+  --ink-mute: #5b6473;
   --rule: #dfe3e9;
   --rule-strong: #838594;
   --field-border: #c2c8d1;
@@ -16,9 +16,9 @@
   --error-bg: #fbf1f0;
   --ok-bg: #f1f5f2;
 
-  /* hero videonun ustu her durumda koyu kalir, yazi beyaz okunur */
+  /* hero gorselinin ustu her durumda koyu kalir, yazi beyaz okunur */
   --hero-ink: #ffffff;
-  --hero-ink-body: #e7eaf0;
+  --hero-ink-body: #eef1f6;
 }
 
 *,
@@ -78,7 +78,7 @@ p {
 
 .topbar .logo {
   display: block;
-  width: 132px;
+  width: 148px;
   height: auto;
 }
 
@@ -98,7 +98,9 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(0.7) contrast(1.05) brightness(0.66);
+  /* Gorsel parlak; yazinin okunmasi perdeye birakilmadan once
+     hafifce koyulastirilir. */
+  filter: saturate(0.92) brightness(0.9);
 }
 
 /* Yazinin okunmasi icin koyu perde */
@@ -106,8 +108,12 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(7, 10, 17, 0.82) 0%, rgba(7, 10, 17, 0.45) 38%, rgba(7, 10, 17, 0.94) 100%),
-    linear-gradient(90deg, rgba(7, 10, 17, 0.8) 0%, rgba(7, 10, 17, 0.15) 62%);
+    linear-gradient(180deg,
+      rgba(6, 9, 16, 0.55) 0%,
+      rgba(6, 9, 16, 0.16) 32%,
+      rgba(6, 9, 16, 0.58) 62%,
+      rgba(6, 9, 16, 0.92) 100%),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.62) 0%, rgba(6, 9, 16, 0.06) 72%);
 }
 
 .hero__inner {
@@ -138,15 +144,16 @@ p {
 }
 
 .hero__line {
-  max-width: 34rem;
+  max-width: 36rem;
   color: var(--hero-ink-body);
+  font-size: 1.05rem;
 }
 
 /* E-posta adresi normal yazimiyla: buyuk harf okunakligi dusuruyor. */
 .hero__contact {
   margin-bottom: 0;
   color: var(--hero-ink);
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 /* ── bolumler (2.2 – 2.7) ───────────────────────────────────── */
@@ -346,16 +353,3 @@ button[type="submit"][disabled] {
   letter-spacing: 0.06em;
 }
 
-/* ── hareket azaltma tercihi ────────────────────────────────── */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__media {
-    display: none;
-  }
-
-  .hero {
-    background-image: url("hero-poster.jpg");
-    background-position: center;
-    background-size: cover;
-  }
-}
